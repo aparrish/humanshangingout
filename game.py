@@ -122,7 +122,7 @@ noun_response_frames = {
 	('milliner','neutral'):
 		"Who ever heard of a hat made from %(noun)s, ROBOT!",
 	('milliner','verb_right'):
-		"For all that we %(verb)s in my hattery, it is never at %(noun)s... ROBOT!",
+		"For all that we %(verb)s in my hattery, never do we %(verb)s %(noun)s... ROBOT!",
 	('milliner','verb_wrong'):
 		"No %(acv)s %(pcn)s would ever get near me or one of my hats.  You'd know that if you weren't a ROBOT!!",
 	('prophet','neutral'):
