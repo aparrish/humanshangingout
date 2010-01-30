@@ -13,6 +13,37 @@ class Profession(Evaluator):
 class Disposition(Evaluator):
 	pass
 
+def evaluate(human, verb, noun):
+	data = dict()
+	evaluation = human.evaluate(verb, noun)
+	if evaluation == (True, True):
+		data['message'] = positive_frames[(human.profession.name,human.disposition.name)] \
+			% {'noun': noun, 'verb': verb}
+		data['score'] = -2
+	elif evaluation == (False, True):
+		choices = [
+			x for x in verb_to_disposition[verb] if x != human.disposition.name]
+		lookup_tuple = tuple([choice(choices),human.disposition.name])
+		data['message'] = verb_response_frames[lookup_tuple] % \
+			{'noun': noun, 'verb': verb}
+		data['score'] = 1
+	elif evaluation[1] == False:
+		if evaluation[0] == False:
+			lookup_tuple = tuple([human.profession.name, 'verb_wrong'])
+			data['score'] = 3
+		elif evaluation[0] == True:
+			lookup_tuple = tuple([human.profession.name,	'verb_right'])
+			data['score'] = 1
+		else:
+			lookup_tuple = tuple([human.profession.name, 'neutral'])
+			data['score'] = 1
+		acv = choice(verb_to_disposition[verb])
+		pcn = choice(noun_to_profession[noun])
+		data['message'] = noun_response_frames[lookup_tuple] % \
+			{'noun': noun, 'verb': verb, 'acv': acv, 'pcn': pcn}
+	return data
+		
+
 """
 - That is entirely the wrong attitude to have about cows.
 - I agree with the sentiment, but why are you talking about ducks?
@@ -214,32 +245,8 @@ if __name__ == '__main__':
 			noun_hand.remove(noun)
 			verb_hand.append(choice([x for x in all_verbs if x not in verb_hand]))
 			noun_hand.append(choice([x for x in all_nouns if x not in noun_hand]))
-			evaluation = human.evaluate(verb, noun)
-			print evaluation
-			if evaluation == (True, True):
-				print positive_frames[(human.profession.name,human.disposition.name)] \
-					% {'noun': noun, 'verb': verb}
-				score -= 2
-			elif evaluation == (False, True):
-				choices = [
-					x for x in verb_to_disposition[verb] if x != human.disposition.name]
-				lookup_tuple = tuple([choice(choices),human.disposition.name])
-				print verb_response_frames[lookup_tuple] % \
-					{'noun': noun, 'verb': verb}
-				score += 1
-			elif evaluation[1] == False:
-				if evaluation[0] == False:
-					lookup_tuple = tuple([human.profession.name, 'verb_wrong'])
-					score += 3
-				elif evaluation[0] == True:
-					lookup_tuple = tuple([human.profession.name,	'verb_right'])
-					score += 1
-				else:
-					lookup_tuple = tuple([human.profession.name, 'neutral'])
-					score += 1
-				acv = choice(verb_to_disposition[verb])
-				pcn = choice(noun_to_profession[noun])
-				print noun_response_frames[lookup_tuple] % \
-					{'noun': noun, 'verb': verb, 'acv': acv, 'pcn': pcn}
+			data = evaluate(human, verb, noun)
+			print data['message']
+			score += data['score']
 			break
 
