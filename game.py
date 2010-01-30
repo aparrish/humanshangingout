@@ -251,5 +251,7 @@ if __name__ == '__main__':
 			data = evaluate(human, verb, noun)
 			print data['message']
 			score += data['score']
+			if score < 0:
+				score = 0
 			break
 
