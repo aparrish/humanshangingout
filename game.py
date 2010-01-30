@@ -212,8 +212,8 @@ if __name__ == '__main__':
 				continue
 			verb_hand.remove(verb)
 			noun_hand.remove(noun)
-			verb_hand.append(choice(all_verbs))
-			noun_hand.append(choice(all_nouns))
+			verb_hand.append(choice([x for x in all_verbs if x not in verb_hand]))
+			noun_hand.append(choice([x for x in all_nouns if x not in noun_hand]))
 			evaluation = human.evaluate(verb, noun)
 			print evaluation
 			if evaluation == (True, True):
