@@ -207,10 +207,13 @@ if __name__ == '__main__':
 
 	from random import choice, shuffle
 
+	verbs_in_hand = 4
+	nouns_in_hand = 4
+
 	all_verbs = list(extract_set_from(dispositions))
 	all_nouns = list(extract_set_from(professions))
-	verb_hand = [choice(all_verbs) for i in range(4)]
-	noun_hand = [choice(all_nouns) for i in range(4)]
+	verb_hand = [choice(all_verbs) for i in range(verbs_in_hand)]
+	noun_hand = [choice(all_nouns) for i in range(nouns_in_hand)]
 	score = 0
 	round = 0
 	
