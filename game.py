@@ -88,12 +88,12 @@ for disp, verbs in dispositions.iteritems():
 			verb_to_disposition[verb] = [disp]
 
 professions = {
-	'cowboy': set(['cows', 'lassos', 'chaps', 'singing', 'populism', 'fancy hats', 'solitude', 'ranching']),
-	'mezzo soprano': set(['trumpets', 'zithers', 'orchestras', 'singing', 'opera', 'rave reviews', 'chanting']),
-	'politician': set(['limousines', 'lobster', 'legislation', 'populism', 'opera', 'free markets', 'pronouncements', 'subsidies']),
-	'milliner': set(['pincushions', 'ribbons', 'fabric', 'fancy hats', 'rave reviews', 'free markets', 'vestments', 'premium yarns']),
+	'cowboy': set(['cows', 'lassos', 'chaps', 'singing', 'populism', 'fancy hats', 'solitude', 'ranching', 'herding', 'grazing', 'fodder', 'flocks', 'flattering pants']),
+	'mezzo soprano': set(['trumpets', 'zithers', 'orchestras', 'singing', 'opera', 'rave reviews', 'chanting', 'tenors', 'conductors', 'bouquets', 'flattering pants', 'solitude', 'limousines']),
+	'politician': set(['limousines', 'lobster', 'legislation', 'populism', 'opera', 'free markets', 'pronouncements', 'subsidies', 'golf', 'merino sweaters', 'flattering pants']),
+	'milliner': set(['pincushions', 'ribbons', 'fabric', 'fancy hats', 'rave reviews', 'free markets', 'vestments', 'premium yarns', 'flattering pants']),
 	'prophet': set(['hallucinations', 'murmuring', 'eclipses', 'solitude', 'chanting', 'pronouncements', 'vestments']),
-	'sheep specialist': set(['herding', 'grazing', 'fodder', 'ranching', 'subsidies', 'premium yarns', 'flocks'])
+	'sheep specialist': set(['herding', 'grazing', 'fodder', 'ranching', 'subsidies', 'premium yarns', 'flocks', 'merino sweaters'])
 }
 
 noun_to_profession = dict()
@@ -149,7 +149,7 @@ noun_response_frames = {
 	('politician','verb_right'):
 		"I may %(verb)s many things, but to %(verb)s %(noun)s is an ethical violation! Seize the ROBOT!",
 	('politician','verb_wrong'):
-		"Do I look like a %(acv)s %(pcn)s? You don't know who you're dealing with, ROBOT!!",
+		"Do I look like a %(acv)s %(pcn)s? Because you look like a ROBOT!!",
 	('milliner','neutral'):
 		"Who ever heard of a hat made from %(noun)s, ROBOT!",
 	('milliner','verb_right'):
@@ -182,20 +182,20 @@ positive_frames = {
 	('mezzo soprano','inquisitive'): "Fascinating! I %(verb)s %(noun)s to rest the throat and nourish the mind. Tra-la, human!",
 	('mezzo soprano','grandiloquent'): "Bisbigliando! You honor my melisma with piacevole homophony. Farewell, human!",
 	('politician','neutral'): 'On the record? This land depends on %(noun)s, fellow human.',
-	('politician','optimistic'): "Why, with hard work, we can make the law of this land %(verb)s %(noun)s. You're a real patriot, human!",
+	('politician','optimistic'): "Yes, and with hard work, we can make the law of this land %(verb)s %(noun)s. You're a patriot and a human!",
 	('politician','jaded'): "If you %(verb)s %(noun)s half as much as I do you've got what's left of my respect, human.",
 	('politician','inquisitive'): "If more people thought to %(verb)s %(noun)s my job would be easier. Thanks for your support, human!",
 	('politician','grandiloquent'): "Ah, a lover of language with Hermes' golden tongue! You have my approbation, fellow human.",
 	('milliner','neutral'): 'What would I be without %(noun)s? Certainly not a milliner, dear human!',
 	('milliner','optimistic'): "That sentiment is as perfectly crafted as one of my hats! What a lovely human.",
-	('milliner','jaded'): "I %(verb)s %(noun)s as much as I revile the wretched brims that are my albatross, human.",
-	('milliner','inquisitive'): "Delightful! A kindred spirit of %(noun)s! Let's one day trade hats, fellow human.",
+	('milliner','jaded'): "Woe is me! I %(verb)s the %(noun)s that are my albatross, human.",
+	('milliner','inquisitive'): "Delightful! We share views on %(noun)s, like a couple of humans!",
 	('milliner','grandiloquent'): "By the balaclava's puggaree, your discourse on %(noun)s is unparalleled! I venerate you, human.",
 	('prophet','neutral'): 'Indeed, I celebrate the power of %(noun)s. Spoken like a true human.',
 	('prophet','optimistic'): "Nothing like a good couple of %(noun)s, eh human?",
 	('prophet','jaded'): "Despair! Despair! You're okay, but otherwise, despair! Leave me to my sorrows, human.",
 	('prophet','inquisitive'): "If you %(verb)s %(noun)s, you can still be saved! Take a brochure, human.",
-	('prophet','grandiloquent'): "And lo, the stately peaks shudder at thy profundity! Go with my beatifications, hominid.",
+	('prophet','grandiloquent'): "The distant peaks shudder at thy profundity! Go with my beatifications, hominid.",
 	('sheep specialist','neutral'): 'To your love of %(noun)s I say Bah! And that is my highest compliment, human!',
 	('sheep specialist','optimistic'): "I can smell it in the air - hogget's on the wean! Please excuse me, human.",
 	('sheep specialist','jaded'): "Well at least you ain't still payin' off loans from specialist school.  Go on, human.",
