@@ -55,7 +55,6 @@ for disp, verbs in dispositions.iteritems():
 			verb_to_disposition[verb].append(disp)
 		else:
 			verb_to_disposition[verb] = [disp]
-print verb_to_disposition
 
 professions = {
 	'cowboy': set(['cows', 'lassos', 'chaps', 'singing', 'populism', 'fancy hats', 'solitude', 'ranching']),
@@ -73,7 +72,6 @@ for prof, nouns in professions.iteritems():
 			noun_to_profession[noun].append(prof)
 		else:
 			noun_to_profession[noun] = [prof]
-print noun_to_profession
 
 verb_response_frames = {
 	('optimistic','jaded'):
@@ -140,7 +138,40 @@ noun_response_frames = {
 	('sheep specialist','verb_wrong'):
 		"You think I did eight years' trainin' so you could call me a %(acv)s %(pcn)s? Eat hoof, ROBOT!!"
 }
-	
+
+positive_frames = {
+	('cowboy','neutral'): 'Damn right you do! Yee-haw, %(noun)s! Yee-haw, human!',
+	('cowboy','optimistic'): "Well hey, partner! Let's %(verb)s %(noun)s together like a couple-a regular humans.",
+	('cowboy','jaded'): "Thought I was the only hombre left with a mind to %(verb)s %(noun)s. Yer all right, human.",
+	('cowboy','inquisitive'): "Makes you wonder why more folks don't %(verb)s %(noun)s, don't it, human?",
+	('cowboy','grandiloquent'): "Tarnation, if that don't just hitch the jinglebob to the thoroughbrace. Yer solid as a whippletree, human!",
+	('mezzo soprano','neutral'): 'What a loo-OOO-ooo-vel-yyy sentiment about %(noun)s, friendly human!',
+	('mezzo soprano','optimistic'): "Divine! I'd die if I couldn't %(verb)s %(noun)s in my dressing room. Toodle-oo, human!",
+	('mezzo soprano','jaded'): "Ah, in my darker moments, I too %(verb)s %(noun)s. You're a rare comfort, human!",
+	('mezzo soprano','inquisitive'): "Fascinating! I %(verb)s %(noun)s to rest the throat and nourish the mind. Tra-la, human!",
+	('mezzo soprano','grandiloquent'): "Bisbigliando! You honor my melisma with piacevole homophony. Farewell, human!",
+	('politician','neutral'): 'On the record? This land depends on %(noun)s, fellow human.',
+	('politician','optimistic'): "Why, with hard work, we can make the law of this land %(verb)s %(noun)s. You're a real patriot, human!",
+	('politician','jaded'): "If you %(verb)s %(noun)s half as much as I do you've got what's left of my respect, human.",
+	('politician','inquisitive'): "If more people thought to %(verb)s %(noun)s my job would be easier. Thanks for your support, human!",
+	('politician','grandiloquent'): "Ah, a lover of language with Hermes' golden tongue! You have my approbation, fellow human.",
+	('milliner','neutral'): 'What would I be without %(noun)s? Certainly not a milliner, dear human!',
+	('milliner','optimistic'): "That sentiment is as perfectly crafted as one of my hats! What a lovely human.",
+	('milliner','jaded'): "I %(verb)s %(noun)s as much as I revile the wretched brims that are my albatross, human.",
+	('milliner','inquisitive'): "Delightful! A kindred spirit of %(noun)s! Let's one day trade hats, fellow human.",
+	('milliner','grandiloquent'): "By the balaclava's puggaree, your discourse on %(noun)s is unparalleled! I venerate you, human.",
+	('prophet','neutral'): 'Indeed, I celebrate the power of %(noun)s. Spoken like a true human.',
+	('prophet','optimistic'): "Nothing like a good couple of %(noun)s, eh human?",
+	('prophet','jaded'): "Despair! Despair! You're okay, but otherwise, despair! Leave me to my sorrows, human.",
+	('prophet','inquisitive'): "If you %(verb)s %(noun)s, you can still be saved! Take a brochure, human.",
+	('prophet','grandiloquent'): "And lo, the stately peaks shudder at thy profundity! Go with my beatifications, hominid.",
+	('sheep specialist','neutral'): 'To your love of %(noun)s I say Bah! And that is my highest compliment, human!',
+	('sheep specialist','optimistic'): "I can smell it in the air - hogget's on the wean! Please excuse me, human.",
+	('sheep specialist','jaded'): "Well at least you ain't still payin' off loans from specialist school.  Go on, human.",
+	('sheep specialist','inquisitive'): "Hey, a fellow lover of %(noun)s! Let's chew the fat like a couple of humans.",
+	('sheep specialist','grandiloquent'): "I quote the erudition of my forebears: those who doth dissertate on %(noun)s are surely human."
+}
+
 if __name__ == '__main__':
 
 	from random import choice, shuffle
@@ -186,7 +217,8 @@ if __name__ == '__main__':
 			evaluation = human.evaluate(verb, noun)
 			print evaluation
 			if evaluation == (True, True):
-				print "success!"
+				print positive_frames[(human.profession.name,human.disposition.name)] \
+					% {'noun': noun, 'verb': verb}
 				score -= 2
 			elif evaluation == (False, True):
 				choices = [
@@ -198,17 +230,16 @@ if __name__ == '__main__':
 			elif evaluation[1] == False:
 				if evaluation[0] == False:
 					lookup_tuple = tuple([human.profession.name, 'verb_wrong'])
+					score += 3
 				elif evaluation[0] == True:
 					lookup_tuple = tuple([human.profession.name,	'verb_right'])
+					score += 1
 				else:
 					lookup_tuple = tuple([human.profession.name, 'neutral'])
+					score += 1
 				acv = choice(verb_to_disposition[verb])
 				pcn = choice(noun_to_profession[noun])
 				print noun_response_frames[lookup_tuple] % \
 					{'noun': noun, 'verb': verb, 'acv': acv, 'pcn': pcn}
-				score += 1
-			else:
-				print "*** PUNCH!!! ***"
-				score += 3
 			break
 
