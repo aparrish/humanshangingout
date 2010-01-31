@@ -81,13 +81,13 @@ dispositions = {
 	'optimistic':
 		set(['enjoy', 'crave', 'relish', 'adore', 'laugh at', 'savor', 'luxuriate in', 'explore', 'admire']),
 	'jaded':
-		set(['despise', 'abhor', 'hate', 'question', 'abominate', 'dismiss', 'laugh at', 'avoid', 'abjure']),
+		set(['despise', 'abhor', 'hate', 'question', 'abominate', 'dismiss', 'laugh at', 'avoid', 'abjure', 'defenestrate']),
 	'inquisitive':
 		set(['study', 'observe', 'inspect', 'savor', 'question', 'aggregate', 'explore', 'dismiss']),
 	'grandiloquent':
 		set(['attenuate', 'luxuriate in', 'abominate', 'aggregate', 'defenestrate', 'exasperate', 'genuflect to']),
 	'deferential':
-		set(['respect', 'heed', 'esteem', 'admire', 'avoid', 'abjure', 'shrink from', 'genuflect to', 'observe'])
+		set(['yield to', 'heed', 'avoid', 'abjure', 'shrink from', 'genuflect to', 'observe'])
 }
 
 verb_to_disposition = dict()
@@ -201,7 +201,7 @@ positive_frames = {
 	('cowboy','neutral'): 'Damn right you do! Yee-haw, %(noun)s! Yee-haw, human!',
 	('cowboy','optimistic'): "Well hey, partner! Let's %(verb)s %(noun)s together like a couple-a regular humans.",
 	('cowboy','jaded'): "Thought I was the only hombre left with a mind to %(verb)s %(noun)s. Yer all right, human.",
-	('cowboy','inquisitive'): "Makes you wonder why more folks don't %(verb)s %(noun)s, don't it, human?",
+	('cowboy','inquisitive'): "Too many humans take %(noun)s lightly.  More humans should follow your lead and %(verb)s %(noun)s, human.",
 	('cowboy','grandiloquent'): "Tarnation, if that don't just hitch the jinglebob to the thoroughbrace. Yer solid as a whippletree, human!",
 	('cowboy','deferential'): "Right on cowpoke, no need to %(verb)s %(noun)s if it don't %(verb)s you first.  Up top, human.",
 	('mezzo soprano','neutral'): 'What a loo-OOO-ooo-vel-yyy sentiment about %(noun)s, friendly human!',
@@ -225,7 +225,7 @@ positive_frames = {
 	('prophet','neutral'): 'Indeed, I celebrate the power of %(noun)s. Spoken like a true human.',
 	('prophet','optimistic'): "Nothing like some %(noun)s to brighten your day, eh human?",
 	('prophet','jaded'): "Woe, for naught but despair can come from %(noun)s! I %(verb)s them as much as I like you, human.",
-	('prophet','inquisitive'): "If you %(verb)s %(noun)s, you can still be saved! Take a brochure, human.",
+	('prophet','inquisitive'): "To %(verb)s %(noun)s is only the beginning! Take a brochure, human.",
 	('prophet','grandiloquent'): "My %(noun)s shudder at thy profundity! Gladly do I %(verb)s thee, hominid.",
 	('prophet','deferential'): "Agreed! I'd rather %(verb)s %(noun)s than get swallowed by the ground, and that's the human truth!",
 	('sheep specialist','neutral'): 'To your love of %(noun)s I say Bah! And that is my highest compliment, human!',
