@@ -71,7 +71,7 @@ def extract_set_from(structure):
 
 dispositions = {
 	'optimistic':
-		set(['enjoy', 'crave', 'relish', 'laugh at', 'savor', 'luxuriate in']),
+		set(['enjoy', 'crave', 'relish', 'laugh about', 'savor', 'luxuriate in']),
 	'jaded':
 		set(['despise', 'abhor', 'hate', 'question', 'abominate']),
 	'inquisitive':
@@ -111,7 +111,7 @@ verb_response_frames = {
 	('optimistic','inquisitive'):
 		"You would %(verb)s a %(noun)s so blindly? ROBOT!",
 	('optimistic','grandiloquent'):
-		"Verily, you %(verb)s %(noun)s like a peasant. A peasant ROBOT!",
+		"Verily, you %(verb)s %(noun)s like a deuced peasant. A peasant ROBOT!",
 	('jaded','optimistic'):
 		"Such cynicism about %(noun)s could only come from a ROBOT!",
 	('jaded','inquisitive'):
@@ -127,7 +127,7 @@ verb_response_frames = {
 	('grandiloquent','optimistic'):
 		"Such big words distract from the majesty of %(noun)s, ROBOT!",
 	('grandiloquent','jaded'):
-		"Your words impress me as little as %(noun)s, ROBOT!",
+		"Your big words impress me as little as %(noun)s, ROBOT!",
 	('grandiloquent','inquisitive'):
 		"When it comes to %(noun)s, no word can substitute for the scientific method... ROBOT!"
 }
@@ -178,9 +178,9 @@ positive_frames = {
 	('cowboy','inquisitive'): "Makes you wonder why more folks don't %(verb)s %(noun)s, don't it, human?",
 	('cowboy','grandiloquent'): "Tarnation, if that don't just hitch the jinglebob to the thoroughbrace. Yer solid as a whippletree, human!",
 	('mezzo soprano','neutral'): 'What a loo-OOO-ooo-vel-yyy sentiment about %(noun)s, friendly human!',
-	('mezzo soprano','optimistic'): "Divine! I'd die if I couldn't %(verb)s %(noun)s in my dressing room. Toodle-oo, human!",
-	('mezzo soprano','jaded'): "Ah, in my darker moments, I too %(verb)s %(noun)s. You're a rare comfort, human!",
-	('mezzo soprano','inquisitive'): "Fascinating! I %(verb)s %(noun)s to rest the throat and nourish the mind. Tra-la, human!",
+	('mezzo soprano','optimistic'): "I'd just die if I couldn't %(verb)s %(noun)s in my dressing room. Toodle-oo, human!",
+	('mezzo soprano','jaded'): "Ah, in my darker moments, I too %(verb)s %(noun)s. You are a rare comfort, human!",
+	('mezzo soprano','inquisitive'): "I %(verb)s %(noun)s to rest the throat and nourish the mind. Tra-la, human!",
 	('mezzo soprano','grandiloquent'): "Bisbigliando! You honor my melisma with piacevole homophony. Farewell, human!",
 	('politician','neutral'): 'On the record? This land depends on %(noun)s, fellow human.',
 	('politician','optimistic'): "Yes, and with hard work, we can make the law of this land %(verb)s %(noun)s. You're a patriot and a human!",
@@ -193,7 +193,7 @@ positive_frames = {
 	('milliner','inquisitive'): "Delightful! We share views on %(noun)s, like a couple of humans!",
 	('milliner','grandiloquent'): "By the balaclava's puggaree, your discourse on %(noun)s is unparalleled! I venerate you, human.",
 	('prophet','neutral'): 'Indeed, I celebrate the power of %(noun)s. Spoken like a true human.',
-	('prophet','optimistic'): "Nothing like a good couple of %(noun)s, eh human?",
+	('prophet','optimistic'): "Nothing like a good couple of %(noun)s to brighten your day, eh human?",
 	('prophet','jaded'): "Despair! Despair! You're okay, but otherwise, despair! Leave me to my sorrows, human.",
 	('prophet','inquisitive'): "If you %(verb)s %(noun)s, you can still be saved! Take a brochure, human.",
 	('prophet','grandiloquent'): "The distant peaks shudder at thy profundity! Go with my beatifications, hominid.",
@@ -201,15 +201,15 @@ positive_frames = {
 	('sheep specialist','optimistic'): "I can smell it in the air - hogget's on the wean! Please excuse me, human.",
 	('sheep specialist','jaded'): "Well at least you ain't still payin' off loans from specialist school.  Go on, human.",
 	('sheep specialist','inquisitive'): "Hey, a fellow lover of %(noun)s! Let's chew the fat like a couple of humans.",
-	('sheep specialist','grandiloquent'): "I quote the erudition of my forebears: those who doth dissertate on %(noun)s are surely human."
+	('sheep specialist','grandiloquent'): "To paraphrase my erudite forebears, those who dissertate on %(noun)s are surely human."
 }
 
 if __name__ == '__main__':
 
 	from random import choice, shuffle
 
-	verbs_in_hand = 4
-	nouns_in_hand = 4
+	verbs_in_hand = 3
+	nouns_in_hand = 3
 
 	all_verbs = list(extract_set_from(dispositions))
 	all_nouns = list(extract_set_from(professions))
