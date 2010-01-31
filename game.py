@@ -101,7 +101,7 @@ for disp, verbs in dispositions.iteritems():
 professions = {
 	'cowboy': set(['cows', 'lassos', 'chaps', 'singing', 'populism', 'fancy hats', 'solitude', 'ranching', 'herding', 'grazing', 'fodder', 'flocks', 'flattering pants']),
 	'mezzo soprano': set(['trumpets', 'zithers', 'orchestras', 'singing', 'opera', 'rave reviews', 'chanting', 'tenors', 'conductors', 'bouquets', 'flattering pants', 'solitude', 'limousines']),
-	'politician': set(['limousines', 'lobster', 'legislation', 'populism', 'opera', 'free markets', 'pronouncements', 'subsidies', 'golf', 'merino sweaters', 'flattering pants']),
+	'politician': set(['limousines', 'lobster', 'legislation', 'populism', 'opera', 'free markets', 'pronouncements', 'subsidies', 'golf', 'merino sweaters', 'flattering pants', 'orchestras']),
 	'milliner': set(['pincushions', 'ribbons', 'fabric', 'fancy hats', 'rave reviews', 'free markets', 'vestments', 'premium yarns', 'flattering pants']),
 	'prophet': set(['hallucinations', 'murmuring', 'eclipses', 'solitude', 'chanting', 'pronouncements', 'vestments', 'flocks']),
 	'sheep specialist': set(['herding', 'grazing', 'fodder', 'ranching', 'subsidies', 'premium yarns', 'flocks', 'merino sweaters'])
