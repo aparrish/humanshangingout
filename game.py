@@ -226,7 +226,7 @@ positive_frames = {
 	('prophet','optimistic'): "Nothing like some %(noun)s to brighten your day, eh human?",
 	('prophet','jaded'): "Woe, for naught but despair can come from %(noun)s! I %(verb)s them as much as I like you, human.",
 	('prophet','inquisitive'): "To %(verb)s %(noun)s is only the beginning! Take a brochure, human.",
-	('prophet','grandiloquent'): "My %(noun)s shudder at thy profundity! Gladly do I %(verb)s thee, hominid.",
+	('prophet','grandiloquent'): "Such profundity! I %(verb)s thee, hominid.",
 	('prophet','deferential'): "Agreed! I'd rather %(verb)s %(noun)s than get swallowed by the ground, and that's the human truth!",
 	('sheep specialist','neutral'): 'To your love of %(noun)s I say Bah! And that is my highest compliment, human!',
 	('sheep specialist','optimistic'): "Hogget's on the wean and there's %(noun)s in the air! I %(verb)s you, human.",
