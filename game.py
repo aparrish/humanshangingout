@@ -14,6 +14,7 @@ class Disposition(Evaluator):
 	pass
 
 def evaluate(human, verb, noun):
+	from random import choice
 	data = dict()
 	evaluation = human.evaluate(verb, noun)
 	if evaluation == (True, True):
