@@ -14,11 +14,16 @@ class Disposition(Evaluator):
 	pass
 
 def evaluate(human, verb, noun):
+	from random import choice
 	data = dict()
 	evaluation = human.evaluate(verb, noun)
 	if evaluation == (True, True):
 		data['message'] = positive_frames[(human.profession.name,human.disposition.name)] \
 			% {'noun': noun, 'verb': verb}
+		data['score'] = -2
+	elif evaluation == (None, True):
+		data['message'] = positive_frames[(human.profession.name,'neutral')] \
+			% {'noun': noun}
 		data['score'] = -2
 	elif evaluation == (False, True):
 		choices = [
@@ -37,8 +42,8 @@ def evaluate(human, verb, noun):
 		else:
 			lookup_tuple = tuple([human.profession.name, 'neutral'])
 			data['score'] = 1
-		acv = choice(verb_to_disposition[verb])
-		pcn = choice(noun_to_profession[noun])
+		acv = choice(verb_to_disposition.get(verb, [None]))
+		pcn = choice(noun_to_profession.get(noun, [None]))
 		data['message'] = noun_response_frames[lookup_tuple] % \
 			{'noun': noun, 'verb': verb, 'acv': acv, 'pcn': pcn}
 	return data
@@ -54,9 +59,12 @@ class Human(object):
 	def __init__(self, disposition, profession):
 		self.disposition = disposition
 		self.profession = profession
-	def evaluate(self, verb, noun):
+	def evaluate(self, verb=None, noun=None):
 		profession_agrees = self.profession.evaluate(noun)
-		disposition_agrees = self.disposition.evaluate(verb)
+		if verb is not None:
+			disposition_agrees = self.disposition.evaluate(verb)
+		else:
+			disposition_agrees = None
 		return (disposition_agrees, profession_agrees)
 	def __str__(self):
 		return "I'm a " + self.disposition.name + " " + self.profession.name + "."
@@ -259,7 +267,7 @@ if __name__ == '__main__':
 			line = raw_input("Please me (verb,noun) >>> ")
 			try:
 				(verb, noun) = line.split(",")
-				if verb not in verb_hand:
+				if len(verb) > 0 and verb not in verb_hand:
 					print "you don't have that verb!"
 					continue
 				if noun not in noun_hand:
@@ -268,9 +276,12 @@ if __name__ == '__main__':
 			except:
 				print "weird input!"
 				continue
-			verb_hand.remove(verb)
+			if len(verb) > 0:
+				verb_hand.remove(verb)
+				verb_hand.append(choice([x for x in all_verbs if x not in verb_hand]))
+			else:
+				verb = None
 			noun_hand.remove(noun)
-			verb_hand.append(choice([x for x in all_verbs if x not in verb_hand]))
 			noun_hand.append(choice([x for x in all_nouns if x not in noun_hand]))
 			data = evaluate(human, verb, noun)
 			print data['message']
