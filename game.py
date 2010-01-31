@@ -212,7 +212,7 @@ positive_frames = {
 	('mezzo soprano','deferent'): "I too %(verb)s %(noun)s, in hopes they might one day notice me.  We are two pitiful humans!",
 	('politician','neutral'): 'On the record? This land depends on %(noun)s, fellow human.',
 	('politician','optimistic'): "Yes, and through legislation, we can make all citizens %(verb)s %(noun)s. You're one patriotic human!",
-	('politician','jaded'): "If you %(verb)s %(noun)s half as much I do, you have my respect.  Human to human.",
+	('politician','jaded'): "After all these years, you couldn't %(verb)s %(noun)s half as much I do.  Human to human.",
 	('politician','inquisitive'): "If more people thought to %(verb)s %(noun)s my job would be easier. Thanks for your support, human!",
 	('politician','grandiloquent'): "Ah, a lover of language with Hermes' golden tongue! You have my approbation, fellow human.",
 	('politician','deferent'): "Yes, in an election year the best move is to %(verb)s %(noun)s.  Better safe than not-human, human.",
