@@ -1,3 +1,14 @@
+"""
+
+Humans Hanging Out
+by Four Humans
+http://www.humanshangingout.com/
+
+This file contains the game library that drives the logic of
+scoring noun/verb pairs and generating text. Run stand-alone
+to play a simple, text-based version of the game.
+
+"""
 import sys
 
 class Evaluator(object):
