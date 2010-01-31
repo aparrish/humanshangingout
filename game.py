@@ -103,7 +103,7 @@ professions = {
 	'mezzo soprano': set(['trumpets', 'zithers', 'orchestras', 'singing', 'opera', 'rave reviews', 'chanting', 'tenors', 'conductors', 'bouquets', 'flattering pants', 'solitude', 'limousines']),
 	'politician': set(['limousines', 'lobster', 'legislation', 'populism', 'opera', 'free markets', 'pronouncements', 'subsidies', 'golf', 'merino sweaters', 'flattering pants']),
 	'milliner': set(['pincushions', 'ribbons', 'fabric', 'fancy hats', 'rave reviews', 'free markets', 'vestments', 'premium yarns', 'flattering pants']),
-	'prophet': set(['hallucinations', 'murmuring', 'eclipses', 'solitude', 'chanting', 'pronouncements', 'vestments']),
+	'prophet': set(['hallucinations', 'murmuring', 'eclipses', 'solitude', 'chanting', 'pronouncements', 'vestments', 'flocks']),
 	'sheep specialist': set(['herding', 'grazing', 'fodder', 'ranching', 'subsidies', 'premium yarns', 'flocks', 'merino sweaters'])
 }
 
@@ -117,82 +117,82 @@ for prof, nouns in professions.iteritems():
 
 verb_response_frames = {
 	('optimistic','jaded'):
-		"Only a silly fool would %(verb)s %(noun)s... ROBOT!",
+		"Only a silly fool would %(verb)s %(noun)s... robot!",
 	('optimistic','inquisitive'):
-		"You would %(verb)s %(noun)s so blindly? ROBOT!",
+		"You would %(verb)s %(noun)s so blindly? Robot!",
 	('optimistic','grandiloquent'):
-		"Who would %(verb)s %(noun)s but a reprobate peasant? Verily, I detect emanations of ROBOT!",
+		"Who would %(verb)s %(noun)s but a reprobate peasant? Verily, I detect emanations of robot!",
 	('optimistic','deferent'):
-		"To %(verb)s %(noun)s you must go through the proper channels, irreverent ROBOT!",
+		"To %(verb)s %(noun)s you must go through the proper channels, irreverent robot!",
 	('jaded','optimistic'):
-		"Such cynicism about %(noun)s could only come from a ROBOT!",
+		"Such cynicism about %(noun)s could only come from a robot!",
 	('jaded','inquisitive'):
-		"I pity your hasty dismissal of %(noun)s... ROBOT!",
+		"I pity your hasty dismissal of %(noun)s... robot!",
 	('jaded','grandiloquent'):
-		"Such provincial derision for %(noun)s could only emanate from a ROBOT!",
+		"Such provincial derision for %(noun)s could only emanate from a robot!",
 	('jaded','deferent'):
-			"To %(verb)s %(noun)s is to dishonor %(noun)s! Infidel ROBOT!",
+			"To %(verb)s %(noun)s is to dishonor %(noun)s! Infidel robot!",
 	('inquisitive','optimistic'):
-		"Anyone who would question the joy of %(noun)s is surely a ROBOT!",
+		"Anyone who would question the joy of %(noun)s is surely a robot!",
 	('inquisitive','jaded'):
-		"Still on the fence about %(noun)s? You must be a ROBOT!",
+		"Still on the fence about %(noun)s? You must be a robot!",
 	('inquisitive','grandiloquent'):
-		"I reject your miscreant curiosity about %(noun)s... ROBOT!",
+		"I reject your miscreant curiosity about %(noun)s... robot!",
 	('inquisitive','deferent'):
-			"You would %(verb)s %(noun)s? Such is the brazen curiosity of the ROBOT!",
+			"You would %(verb)s %(noun)s? Such is the brazen curiosity of the robot!",
 	('grandiloquent','optimistic'):
-		"Such big words distract from the majesty of %(noun)s, ROBOT!",
+		"Such big words distract from the majesty of %(noun)s, robot!",
 	('grandiloquent','jaded'):
-		"Your vocabulary impress me as little as %(noun)s, ROBOT!",
+		"Your vocabulary impress me as little as %(noun)s, robot!",
 	('grandiloquent','inquisitive'):
-		"When it comes to %(noun)s, no lengthy word can substitute for the scientific method... ROBOT!",
+		"When it comes to %(noun)s, no lengthy word can substitute for the scientific method... robot!",
 	('grandiloquent','deferent'):
-		"How ironic, that your giant words betray your tiny merit next to %(noun)s, ROBOT!",
+		"How ironic, that your giant words betray your tiny merit next to %(noun)s, robot!",
 	('deferent','optimistic'):
-		"To %(verb)s %(noun)s is to surrender a chance to become friends with %(noun)s, cowardly ROBOT!",
+		"To %(verb)s %(noun)s is to surrender a chance to become friends with %(noun)s, cowardly robot!",
 	('deferent','jaded'):
-		"You abase yourself when you %(verb)s something so worthless as %(noun)s, you fool and ROBOT!",
+		"You abase yourself when you %(verb)s something so worthless as %(noun)s, you fool and robot!",
 	('deferent','inquisitive'):
-		"Why %(verb)s %(noun)s when you could learn from %(noun)s? Probably because you are a ROBOT!",
+		"Why %(verb)s %(noun)s when you could learn from %(noun)s? Probably because you are a robot!",
 	('deferent','grandiloquent'):
-		"You %(verb)s %(noun)s with the obsequious obeisance of a sycophant, ROBOT!"		
+		"You %(verb)s %(noun)s with the obsequious obeisance of a sycophant, robot!"		
 }
 
 noun_response_frames = {
 	('cowboy','neutral'):
-		"No self-respecting cowboy cares a whit for %(noun)s, ROBOT!",
+		"No self-respecting cowboy cares a whit for %(noun)s... robot!",
 	('cowboy','verb_right'):
-		"I %(verb)s all manner of whatsits, but %(noun)s? Tarnation, it's a ROBOT!",
+		"I %(verb)s many things while ranching, but %(noun)s? Tarnation! You some kind of robot?!",
 	('cowboy','verb_wrong'):
 		"Do I look like some kind of %(acv)s %(pcn)s? Maybe to a goddam ROBOT!!",
 	('mezzo soprano','neutral'):
-		"You pollute my artistic purity with such talk of %(noun)s... ROBOT!",
+		"You pollute my artistic purity with such talk of %(noun)s... robot!",
 	('mezzo soprano','verb_right'):
-		"I would never %(verb)s something so crass! You insult me, ROBOT!",
+		"I would never %(verb)s something so crass! You insult me, robot!",
 	('mezzo soprano','verb_wrong'):
 		"I am a fixture of the arts, not some vulgar %(acv)s %(pcn)s.  ROBOOOOOT!!",
 	('politician','neutral'):
-		"I deny all ties to you and your %(noun)s, ROBOT!",
+		"I deny all ties to you and your %(noun)s, robot!",
 	('politician','verb_right'):
-		"I %(verb)s many things, but to %(verb)s %(noun)s is an ethical violation! Seize the ROBOT!",
+		"I %(verb)s many things, but to %(verb)s %(noun)s is an ethical violation! Seize the robot!",
 	('politician','verb_wrong'):
 		"Do I look like some %(acv)s %(pcn)s? Because you look like a ROBOT!!",
 	('milliner','neutral'):
-		"Who ever heard of a hat made from %(noun)s, ROBOT!",
+		"Who ever heard of a hat made from %(noun)s, robot?!",
 	('milliner','verb_right'):
 		"For all that we %(verb)s in my hattery, never do we %(verb)s %(noun)s... ROBOT!",
 	('milliner','verb_wrong'):
 		"I reject the tenets of %(acv)s %(pcn)ss and so do my hats!  You'd know that if you weren't a ROBOT!!",
 	('prophet','neutral'):
-		"All who worship the false idol of %(noun)s shall perish, ROBOT!",
+		"All who worship the false idol of %(noun)s shall perish, robot!",
 	('prophet','verb_right'):
-		"To %(verb)s the holy is sacred, but to %(verb)s %(noun)s is profane! Doom on you, ROBOT!",
+		"To %(verb)s the holy is sacred, but to %(verb)s %(noun)s is profane! Doom on you, robot!",
 	('prophet','verb_wrong'):
 		"Blasphemy! To see me as some %(acv)s %(pcn)s is to burn for eternity, ROBOT!!",
 	('sheep specialist','neutral'):
-		"I can't shear no (noun)s, ROBOT!",
+		"I can't shear no %(noun)s, robot!",
 	('sheep specialist','verb_right'):
-		"I %(verb)s most everything, but %(noun)s? That just ain't right, ROBOT!",
+		"I %(verb)s most everything, but %(noun)s? That just ain't right... robot!",
 	('sheep specialist','verb_wrong'):
 		"You think I did eight years' trainin' so you could mistake me for some %(acv)s %(pcn)s? Eat hoof, ROBOT!!"
 }
@@ -209,7 +209,7 @@ positive_frames = {
 	('mezzo soprano','jaded'): "Ah, in my darker moments, I too %(verb)s %(noun)s. You are a rare comfort, human!",
 	('mezzo soprano','inquisitive'): "I %(verb)s %(noun)s to rest the throat and nourish the mind. Tra-la, human!",
 	('mezzo soprano','grandiloquent'): "Bisbigliando! Such piacevole homophony, for I too %(verb)s %(noun)s! Farewell, human!",
-	('mezzo soprano','deferent'): "I too %(verb)s %(noun)s, in hopes they might one day notice me.  We are two pitiful humans!",
+	('mezzo soprano','deferent'): "Do you also %(verb)s %(noun)s in hopes they might one day notice you? When will that day come, kindred human?",
 	('politician','neutral'): 'On the record? This land depends on %(noun)s, fellow human.',
 	('politician','optimistic'): "Yes, and through legislation, we can make all citizens %(verb)s %(noun)s. You're one patriotic human!",
 	('politician','jaded'): "After all these years, you couldn't %(verb)s %(noun)s half as much I do.  Human to human.",
@@ -224,27 +224,27 @@ positive_frames = {
 	('milliner','deferent'): "I %(verb)s %(noun)s because I like to see humility reflected in my hats.  Surely you understand, as a human.",
 	('prophet','neutral'): 'Indeed, I celebrate the power of %(noun)s. Spoken like a true human.',
 	('prophet','optimistic'): "Nothing like some %(noun)s to brighten your day, eh human?",
-	('prophet','jaded'): "Woe, for %(noun)s bring naught but despair! I %(verb)s them as much as I like you, human.",
+	('prophet','jaded'): "Woe, for naught but despair can come from %(noun)s! I %(verb)s them as much as I like you, human.",
 	('prophet','inquisitive'): "If you %(verb)s %(noun)s, you can still be saved! Take a brochure, human.",
 	('prophet','grandiloquent'): "My %(noun)s shudder at thy profundity! Gladly do I %(verb)s thee, hominid.",
 	('prophet','deferent'): "Agreed! I'd rather %(verb)s %(noun)s than get swallowed by the ground, and that's the human truth!",
 	('sheep specialist','neutral'): 'To your love of %(noun)s I say Bah! And that is my highest compliment, human!',
 	('sheep specialist','optimistic'): "Hogget's on the wean and there's %(noun)s in the air! I %(verb)s you, human.",
 	('sheep specialist','jaded'): "Well at least you ain't still payin' off loans from specialist school.  Go on, human.",
-	('sheep specialist','inquisitive'): "Hey, a fellow lover of %(noun)s! Let's chew the fat like a couple of humans.",
+	('sheep specialist','inquisitive'): "A fellow lover of %(noun)s! Let's chew the fat like a couple of humans.",
 	('sheep specialist','grandiloquent'): "To paraphrase my erudite forebears, those who dissertate on %(noun)s are surely human.",
 	('sheep specialist','deferent'): "Mark my words: the day I don't %(verb)s %(noun)s is the day the sheep take over, human."
 }
 
 name_parts = {
 	'cowboy': {
-		'first_pre': ['Tin', 'Mex', 'Sand', 'Bull'],
+		'first_pre': ['Tin', 'Mex', 'Sand', 'Bull', 'Toro'],
 		'first_post': None,
 		'last_pre': ['Boots', 'Chap', 'Cow', 'Rope', 'Range'],
 		'last_post': ['ley', 'ford', 'man', 'bard', 'cap']
 	},
 	'milliner': {
-		'first_pre': [ 'Sandra','Rowena','Paula','Marla','Hettie' ],
+		'first_pre': [ 'Sandro','Rowan','Paulo','Marlo','Henry' ],
 		'first_post': None,
 		'last_pre': [ 'Ander','Hender','John','Brown','Frank' ],
 		'last_post': [ 'son','swood','sley','stein','stown' ]
