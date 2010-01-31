@@ -59,6 +59,7 @@ class Human(object):
 	def __init__(self, disposition, profession):
 		self.disposition = disposition
 		self.profession = profession
+		self.name = generate_name(profession.name)
 	def evaluate(self, verb=None, noun=None):
 		profession_agrees = self.profession.evaluate(noun)
 		if verb is not None:
@@ -67,7 +68,7 @@ class Human(object):
 			disposition_agrees = None
 		return (disposition_agrees, profession_agrees)
 	def __str__(self):
-		return "I'm a " + self.disposition.name + " " + self.profession.name + "."
+		return "I'm " + self.name + ", a " + self.disposition.name + " " + self.profession.name + "."
 
 def extract_set_from(structure):
 	items = set()
@@ -235,6 +236,64 @@ positive_frames = {
 	('sheep specialist','deferent'): "Mark my words: the day I don't %(verb)s %(noun)s is the day the sheep take over, human."
 }
 
+name_parts = {
+	'cowboy': {
+		'first_pre': ['Tin', 'Mex', 'Sand', 'Bull'],
+		'first_post': None,
+		'last_pre': ['Boots', 'Chap', 'Cow', 'Rope', 'Range'],
+		'last_post': ['ley', 'ford', 'man', 'bard', 'cap']
+	},
+	'milliner': {
+		'first_pre': [ 'Sandra','Rowena','Paula','Marla','Hettie' ],
+		'first_post': None,
+		'last_pre': [ 'Ander','Hender','John','Brown','Frank' ],
+		'last_post': [ 'son','swood','sley','stein','stown' ]
+	},
+	'mezzo soprano': {
+		'first_pre': ['Meli', 'Shandi', 'Poli', 'Kari', 'Sara'],
+		'first_post': ['lewa', 'mela', 'sma', 'fina', 'vona'],
+		'last_pre': ['the Great-', 'the High-', 'the Broad-', 'the Slim-'],
+		'last_post': ['Voiced', 'Cheeked', 'Browed', 'Throated', 'Lunged']
+	},
+	'politician': {
+		'first_pre': ['Chad', 'Thad', 'Brad', 'Skag', 'Shad'],
+		'first_post': [ 'wood','ley','derton','bert','dikins' ],
+		'last_pre': ['Hearth','Sand','Bon','Snak','Lund'],
+		'last_post': [ 'erson','berg','ington','esly','man' ],
+	},
+	'prophet': {
+		'first_pre': [ 'Mega','Ultra','Tera','Gala','Transi' ],
+		'first_post': [ 'moses','lomax','domo','thax','baz' ],
+		'last_pre': None,
+		'last_post': None
+	},
+	'sheep specialist': {
+		'first_pre': [ 'Saug','Mert','Hormp','Bulk','Orv' ],
+		'first_post': [ 'us','ler','mane','omel','iful' ],
+		'last_pre': [ 'Gorse','Shemp','Moss','Brush','Stick' ],
+		'last_post': [ 'wood','heap','pile','thatch','gristle' ]
+	}
+}
+
+def generate_name(profession):
+	from random import choice
+	firstname = str()
+	if name_parts[profession]['first_pre'] is not None:
+		firstname += choice(name_parts[profession]['first_pre'])
+	if name_parts[profession]['first_post'] is not None:
+		firstname += choice(name_parts[profession]['first_post'])
+
+	lastname = str()
+	if name_parts[profession]['last_pre'] is not None:
+		lastname += choice(name_parts[profession]['last_pre'])
+	if name_parts[profession]['last_post'] is not None:
+		lastname += choice(name_parts[profession]['last_post'])
+
+	if len(lastname) > 0:
+		return firstname + " " + lastname
+	else:
+		return firstname
+		
 if __name__ == '__main__':
 
 	from random import choice, shuffle
